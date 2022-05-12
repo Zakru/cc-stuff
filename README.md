@@ -14,3 +14,14 @@ With `asyncTracked`, movement functions are run in coroutines and are infallible
 |`turn`|Error caused by `turnLeft` or `turnRight`|
 
 If the first value yielded is not prefixed by `$`, it should be handled as a request to wait for events like normal yields. Note that because of the nonstandard yields, `asyncTracked` requires some sort of custom runtime (see `smartQuarry.lua` for an example)
+
+## `genericPeripherals`
+
+This library provides an interface to request configurable peripherals, so that the same code can run on different devices. The aim is to have standard peripheral names, currently only `speaker_left` and `speaker_right`. These peripherals can be configured with a file called `peripherals.conf` in the root directory with a simple key=value syntax:
+
+```
+speaker_left = left
+speaker_right = right
+monitor_primary = top
+printer_log = printer_0
+```
